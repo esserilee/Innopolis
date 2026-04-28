@@ -49,7 +49,6 @@ def load_data():
             last_error = e
             continue
 
-    # если сюда дошли – ни один вариант не подошёл
     st.error(
         "Не удалось автоматически распознать структуру файла vacancies_hh.csv.\n"
         "Проверьте, что в первой строке есть заголовки колонок и среди них есть колонка "
@@ -167,9 +166,9 @@ def get_vacancies(role_query, min_salary=None, min_exp=None, city=None, top_n=10
 
 # интерфейс
 
-st.title("🔎 Подбор вакансий")
+st.title(" Подбор вакансий")
 
-st.markdown("### Введите параметры для поиска")
+st.markdown(" Введите параметры для поиска")
 
 role = st.text_input("Должность (например: аналитик данных)")
 salary = st.text_input("Минимальная зарплата, руб.")
@@ -184,13 +183,13 @@ if st.button("Найти вакансии"):
 
     table, link = get_vacancies(role, min_salary, min_exp, city)
 
-    st.subheader("🔗 Ссылка на hh.ru")
+    st.subheader(" Ссылка на hh.ru")
     st.write(link)
 
-    st.subheader("📋 Подходящие вакансии")
+    st.subheader(" Подходящие вакансии")
     st.dataframe(table)
 
-    st.subheader("📊 Качество ML-модели (предсказание зарплаты)")
+    st.subheader(" Качество ML-модели (предсказание зарплаты)")
     st.write(f"R² = {r2:.3f}")
     st.write(f"MAE = {int(mae)} руб.")
 
