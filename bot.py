@@ -199,11 +199,11 @@ async def show_results(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text_lines = []
 
-    text_lines.append("🔗 Ссылка на поиск на hh.ru:\n" + link + "\n")
+    text_lines.append("Ссылка на поиск на hh.ru:\n" + link + "\n")
     text_lines.append("Подходящие вакансии:\n")
 
     if table.empty:
-        text_lines.append("Ничего не найдено по заданным параметрам 😔")
+        text_lines.append("Ничего не найдено по заданным параметрам")
     else:
         for _, row in table.iterrows():
             sf = row["salary_from"]
